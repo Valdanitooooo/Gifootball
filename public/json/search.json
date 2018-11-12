@@ -1,0 +1,18 @@
+---
+layout: null
+---
+[
+  {% for post in site.posts %}
+    {
+      "type"    : "{{ post.type | escape }}",
+      "featimg"    : "{{ post.featimg | escape }}",
+      "videoUrl"    : "{{ post.videoUrl | escape }}",
+      "audioUrl"    : "{{ post.audioUrl | escape }}",
+      "title"    : "{{ post.title | escape }}",
+      "category": "{{ post.category }}",
+      "tags" 		 : "{{ post.tags | join: ','}}",
+      "url"      : "{{ post.url }}",
+      "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
