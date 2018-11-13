@@ -34,9 +34,9 @@
     }
     var keyword = "";
     var pageNum = 0;
-    var perPageItem = {{ page.perPageItem }};
+    var perPageItem = "{{ page.perPageItem }}";
     var startNum = 0;
-    var endNum = {{ page.initItem }};
+    var endNum = "{{ page.initItem }}";
     var totalNum = 0;
     var $loading = $("<div class='loading' style='text-align:center !important;'><img src='/public/img/loading.gif'></div>");
     var articles;
