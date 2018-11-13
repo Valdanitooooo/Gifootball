@@ -31,29 +31,29 @@
                         {% endif %}
                         <div class="post-content-prev">
                         {% assign page_type = page.categories.first %}
-                        {% if "Video" == page_type %}
+                        {% if "video" == page_type %}
                             {% if page.videoUrl %}
                                 <div class="video-container">
                                     <iframe src="{{page.videoUrl}}" allowfullscreen></iframe>
                                 </div>
                             {% endif %}
-                        {% elsif "Gif" == page_type or "Image" == page_type %}
+                        {% elsif "gif" == page_type or "Image" == page_type %}
                             {% if page.featimg %}
                                 <img class="featimg" src="{{ page.featimg }}" alt="{{ page.featimg }}">
                             {% endif %}
-                        {% elsif "Audio" == page_type %}
+                        {% elsif "audio" == page_type %}
                             {% if page.audioUrl %}
                                 <div class="video-container">
                                     <iframe src="{{ page.audioUrl }}"></iframe>
                                 </div>
                             {% endif %}
                         {% endif %}
-                        {% if "Post" == page_type %}
+                        {% if "post" == page_type %}
                             {% if page.featimg %}
                                 <img class="featimg" src="{{ page.featimg }}" alt="{{ page.featimg }}">
                             {% endif %}
                         {% endif %}
-                        {% if "Gallery" == page_type %}
+                        {% if "gallery" == page_type %}
                             {% include gallery_lightbox.html %}
                         {% endif %}
                     </div>
