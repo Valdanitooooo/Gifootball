@@ -1,4 +1,6 @@
 source 'https://gems.ruby-china.com'
 
-gem 'github-pages'
-gem 'jekyll-paginate-category'
+group :jekyll_plugins do
+  gem 'github-pages'
+  gem 'jekyll-paginate-category'
+end
