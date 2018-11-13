@@ -14,6 +14,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-relative_permalinks: false
+# relative_permalinks: false
 tucao: 40428
 exclude: [.git, .gitignore, package.json, node_modules, README.md, _site]

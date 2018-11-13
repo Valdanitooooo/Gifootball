@@ -61,10 +61,10 @@ perPageItem: 3
     }
     var keyword = "";
     var pageNum = 0;
-    var perPageItem = {{ page.perPageItem }};
+    var perPageItem = "{{ page.perPageItem }}";
     var totalTags = "";
     var startNum = 0;
-    var endNum = {{ page.initItem }};
+    var endNum = "{{ page.initItem }}";
     var totalNum = 0;
     var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="/public/img/loading.gif"></div>');
     var articles;
