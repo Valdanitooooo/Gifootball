@@ -5,7 +5,7 @@ permalink: /:categories/:year/:month/:day/:title.html
 paginate: 9
 paginate_path: /page/:num/
 infinite_scroll: true #change to false if you want to use pagination
-plugins: [jekyll-paginate,jekyll-paginate-category]
+plugins: [jekyll-paginate]
 tag_dir: /tags
 category_dir: /category
 category_layout: index.html
