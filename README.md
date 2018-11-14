@@ -1,2 +1,0 @@
-# GIfootball
-www.gifootball.com
