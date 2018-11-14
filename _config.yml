@@ -1,4 +1,4 @@
-name: Gifootball
+title: Gifootball | 姐夫足球网
 description: 足球纪念馆
 baseurl:
 permalink: /:categories/:year/:month/:day/:title.html
@@ -6,7 +6,7 @@ paginate: 9
 paginate_path: /page/:num/
 infinite_scroll: true #change to false if you want to use pagination
 plugins: [jekyll-paginate]
-tag_dir: /tags
+tag_dir: /tag
 category_dir: /category
 category_layout: index.html
 
