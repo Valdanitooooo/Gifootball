@@ -14,32 +14,7 @@ perPageItem: 3
         {% include nav.html %}
     </header>
     <div class="margin">
-        <div class="searchArea">
-            <iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
-            <form id="search-bar" action="" target="the_iframe" onsubmit="encodeKeyword();return false;">
-                <div class="typeahead__container">
-                    <div class="typeahead__field">
-            
-                        <span class="typeahead__query">
-                            <input type="text" id="input-tags" name="q" class="js-typeahead demo-default selectized" value=""
-                                tabindex="-1" style="display: none;" type="search" autocomplete="off">
-                        </span>
-                        <span class="typeahead__button" >
-                            <button type="submit" id="btn">
-                                <span class="typeahead__search-icon"></span>
-                            </button>
-                        </span>
-                        <!-- <button id="btn" type="button">Search</button> -->
-                    </div>
-                </div>
-            </form>
-            
-        </div>
         <div class="content">
-            <!-- <div class="switch">
-                    <div id="grid"><span></span></div>
-                    <div id="classic"><span></span></div>
-                </div> -->
             <div class="articles posts">
                 
             </div>
@@ -47,18 +22,11 @@ perPageItem: 3
     </div>
     {% include footer.html %}
 </body>
-<script src="/public/js/search.js"></script>
 
 <script>
-	/**
-	 * encode the keyword before submit
-	 */
-    function encodeKeyword() {
-        var keywordStr = $('input.js-typeahead').val();
-        var ua = navigator.userAgent.toLowerCase();
-        search(keywordStr);
-    }
-    var keyword = "";
+
+    var keyword = getQueryString('q');
+ 
     var pageNum = 0;
     var perPageItem = "{{ page.perPageItem }}";
     var totalTags = "";
@@ -73,20 +41,7 @@ perPageItem: 3
         totalNum = articles.length;
         initArticles(); 
     });
-    function search(keywordStr) {
-        keyword = keywordStr;
-        startNum = 0;
-        if (!!keyword && "null" != keyword) {
-            $("#input-tags").val(keyword);
-        }
-        $(".posts").empty();
-        $.getJSON("/public/json/search.json").done(function (data) {
-            articles = data;
-            totalTags = getTotalTags(articles);
-            totalNum = articles.length;
-            initArticles();
-        });
-    }
+
 
     function getTotalTags(articles){
         var totalTagsArr = [];
@@ -111,9 +66,8 @@ perPageItem: 3
 	*/
     function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
+        var result = window.location.search.substr(1).match(reg);
+        return result ? decodeURIComponent(result[2]) : null;
     }
 
 	/**
@@ -226,15 +180,15 @@ perPageItem: 3
 	 * @param {Object} post
 	 */
     function matchKeyword(post) {
-        var contentAll = new Array();
-        contentAll.push(post.tags);
-        var keywordArr = keyword.split(",");
-        for (j = 0, len = keywordArr.length; j < len; j++) {
-            if(contentAll.join('').toString().indexOf(keywordArr[j]) == -1){
-                return false;
+        var tagsArr = post.tags.split(",");
+        var hasTag = false;
+        for(var i in tagsArr){
+            if(keyword == tagsArr[i]){
+                hasTag = true;
+                break;
             }
         }
-        return true;
+        return hasTag;
     }
 
     function increment() {

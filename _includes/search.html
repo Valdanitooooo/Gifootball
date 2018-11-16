@@ -1,0 +1,176 @@
+<iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
+<form id="search-bar" action="" target="the_iframe" onsubmit="encodeKeyword();return false;">
+    <div class="typeahead__container">
+        <div class="typeahead__field">
+
+            <span class="typeahead__query">
+                <input type="text" id="input-tags" name="q" class="js-typeahead demo-default selectized" value=""
+                    tabindex="-1" style="display: none;" type="search" autocomplete="off">
+            </span>
+            <span class="typeahead__button" hidden="hidden">
+                <button type="submit">
+                    <span class="typeahead__search-icon"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+<!-- <div class="switch">
+    <div id="grid"> <span></span></div>
+    <div id="classic"><span></span></div>
+</div> -->
+<div class="articles posts">
+</div>
+<script src="/public/js/search.js"></script>
+
+<script>
+	/**
+	 * encode the keyword before submit
+	 */
+    function encodeKeyword() {
+        var keywordStr = $('input.js-typeahead').val();
+        var ua = navigator.userAgent.toLowerCase();
+        search(keywordStr);
+    }
+    var keyword = "";
+    var pageNum = 0;
+    var perPageItem = "{{ page.perPageItem }}";
+    var startNum = 0;
+    var endNum = "{{ page.initItem }}";
+    var totalNum = 0;
+    var $loading = $("<div class='loading' style='text-align:center !important;'><img src='/public/img/loading.gif'></div>");
+    var articles;
+    function search(keywordStr) {
+        keyword = keywordStr;
+        if (!!keyword && "null" != keyword) {
+            $("#input-tags").val(keyword);
+            // $('<div style="background-image:linear-gradient(to bottom, red, red)" \
+            // data-value="image">image</div>').insertBefore("#input-tags-selectized")
+            $(".posts").empty();
+            $.getJSON("/public/json/search.json").done(function (data) {
+                articles = data;
+                totalNum = articles.length;
+                initArticles();
+            });
+        }
+    }
+	/**
+	 * get the param from url
+	 * 
+	 * @param {Object} name
+	*/
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+	/**
+	 * get the bottom offset of an element
+	*/
+    function getOffsetBottom(selector) {
+        if ($(selector).offset() == undefined) {
+            return 1;
+        }
+        var offsetTop = $(selector).offset().top;
+        var documentHeight = $(selector).height();
+        var offsetBottom = $(window).height() - (offsetTop + documentHeight);
+        return offsetBottom;
+    }
+
+	/**
+	 * init the frist batch of articles to activate waypoint
+	 */
+    function initArticles() {
+        var offsetBottom = getOffsetBottom('div.posts .page-article:last');
+        while (offsetBottom > 0 && startNum < totalNum) {
+            getArticles();
+            offsetBottom = getOffsetBottom('div.posts .page-article:last');
+            increment();
+        }
+        if ($('div.posts .page-article:last').length == 0) {
+            $('div.posts').html('<p>There are no post matches.</p>')
+        } else {
+            getArticlesInfinite();
+        }
+    }
+
+    function getArticlesInfinite() {
+        getArticles();
+        createWaypoint();
+    }
+
+    function getArticles() {
+        $('div.posts').append($loading);
+        var htmlArr = '';
+        var currentData = null;
+        endNum = endNum > totalNum ? totalNum : endNum;
+        for (var i = startNum; i < endNum; i++) {
+            currentData = articles[i];
+            if (!matchKeyword(currentData)) continue;
+            htmlArr += '<article class="page-article">';
+            if ("video" == currentData.category && !!currentData.videoUrl) {
+                htmlArr += '<div class="video-container"><iframe src = "' + currentData.videoUrl + '" allowfullscreen ></iframe></div>';
+            } else if ("audio" == currentData.category && !!currentData.audioUrl) {
+                htmlArr += '<div class="video-container"><iframe src = "' + currentData.audioUrl + '"></iframe></div>';
+            } else {
+                if (!!currentData.featimg) {
+                    htmlArr += '<a href="' + currentData.url + '" class="noline">\
+                        <img src = "'+ currentData.featimg + '" alt="' + currentData.featimg + '"></a>';
+                }
+            }
+            htmlArr += '<span class="date">{{ post.date | date: "% B % d, % Y" }}</span>\
+				<a href = "'+ currentData.url + '" >\
+					<h5>'+ currentData.title + '</h5>\
+				</a>\
+				<p class="post-content">{{ post.content | strip_html | truncatewords: 15 }}</p>\
+				<p class="actions">\
+					<a href="'+ currentData.url + '">Read More</a>\
+				</p>';
+            htmlArr += '</article>';
+        }
+        $('div.loading').remove();
+        $('.posts').append(htmlArr);
+    }
+
+    function createWaypoint() {
+        $('div.posts .page-article:last').waypoint(function (direction) {
+            if (startNum == totalNum) {
+                this.destroy();
+                return; //all articles have been loaded
+            }
+            if (direction == "down") {
+                this.destroy();
+                increment();
+                getArticlesInfinite();
+            }
+        }, {
+                offset: 'bottom-in-view'
+            });
+    }
+
+	/**
+	 * check whether the article matches the keyword 
+	 * @param {Object} post
+	 */
+    function matchKeyword(post) {
+        var contentAll = new Array();
+        contentAll.push(post.title);
+        contentAll.push(post.tags);
+        contentAll.push(post.category);
+        contentAll.push(post.content);
+        if (contentAll.join('').toString().indexOf(keyword) == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function increment() {
+        startNum = endNum; //let next startNum equals last endNum
+        pageNum++;
+        endNum += perPageItem;
+    }
+
+</script>

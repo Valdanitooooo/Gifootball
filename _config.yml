@@ -1,0 +1,17 @@
+title: Gifootball | 姐夫足球网
+description: 足球纪念馆
+baseurl:
+permalink: /:categories/:year-:month-:day/:title.html
+paginate: 6
+paginate_path: /page/:num/
+infinite_scroll: true #change to false if you want to use pagination
+plugins: [jekyll-paginate]
+
+encoding: utf-8
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+# relative_permalinks: false
+tucao: 40428
+exclude: [.git, .gitignore, package.json, node_modules, _site,docker-compose.yml,Gemfile]

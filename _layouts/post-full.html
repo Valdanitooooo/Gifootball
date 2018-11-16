@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body>
+        <div class="scanlines"></div>
+        <header class="head">
+            {% include nav.html %}
+        </header>
+        <div class="margin">
+            <div class="content full">
+                <div class="content-container">
+                    <article>
+                        <h3 class="post-title">
+                            {{ page.title }}
+                        </h3>
+                        {% if page.tags %}
+                        <div class="catsandtags">
+                            {% if page.tags %}
+                            <div class="tagscloud">
+                                <ul>
+                                {% for tag in page.tags %}
+                                <li><a href="/tag?q={{ tag | url_encode}}">{{ tag }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        <div class="post-content-prev">
+                        {% assign page_type = page.categories.first %}
+                        {% if "video" == page_type %}
+                            {% if page.videoUrl %}
+                                <div class="video-container">
+                                    <iframe src="{{page.videoUrl}}" allowfullscreen></iframe>
+                                </div>
+                            {% endif %}
+                        {% elsif "audio" == page_type %}
+                            {% if page.audioUrl %}
+                                <div class="video-container">
+                                    <iframe src="{{ page.audioUrl }}"></iframe>
+                                </div>
+                            {% endif %}
+                        {% else %} 
+                            {% if page.featimg %}
+                            <img class="featimg" src="{{ page.featimg }}" alt="{{ page.featimg }}">
+                            {% endif %} 
+                        {% endif %}
+                        {% if "gallery" == page_type %}
+                            {% include gallery_lightbox.html %}
+                        {% endif %}
+                    </div>
+                    {% if page.category %}
+                    <div class="date-see">
+                        <i class="iconfont icon-time"></i><span class="date">{{ page.date | date: '%Y-%m-%d' }}</span>
+                        <i class="iconfont icon-see"></i>
+                        <span class="date" data-hk-page="current"></span>
+                    </div>
+                    {% endif %}
+                    <div class="post-content">
+                        {{ content }}
+                    </div>
+                    </article>
+                    <!-- {% include comment.html %} -->
+                    <div class="post-nav">
+                        {% if page.previous.url %}
+                        <a class="btn prev" href="{{ page.previous.url | replace: '//', '/' }}"><i class="fa fa-angle-left"></i><span class="short"> prev</span><span class="long">ious</span></a>
+                        {% endif %}
+                        {% if page.next.url %}
+                        <a class="btn next" href="{{ page.next.url | replace: '//', '/' }}"><span class="short">next </span><span class="long"></span><i class="fa fa-angle-right"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% include footer.html %}
+        
+    </body>
+</html>

@@ -1,123 +1,17 @@
+---
+layout: null
+---
 [
-  
+  {% for post in site.posts %}
     {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fx7bbr5ew8j20fa0a775u.jpg",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "2006女足世青赛颁奖",
-      "category": "image",
-      "tags" 		 : "马晓旭,张艳茹,女足,中国女足,世青赛,2006",
-      "url"      : "/image/2018-11-14/2006%E5%A5%B3%E8%B6%B3%E4%B8%96%E9%9D%92%E8%B5%9B%E9%A2%81%E5%A5%96.html",
-      "date"     : "2018-11-14"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fx68xic1n0g20b4069qv6.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "金凯瑞坐船",
-      "category": "gif",
-      "tags" 		 : "金凯瑞,楚门的世界",
-      "url"      : "/gif/2018-11-13/%E9%87%91%E5%87%AF%E7%91%9E%E5%9D%90%E8%88%B9.html",
-      "date"     : "2018-11-13"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "",
-      "videoUrl"    : "",
-      "audioUrl"    : "//music.163.com/outchain/player?type=2&amp;id=22777398&amp;auto=0&amp;height=66",
-      "title"    : "鬼束千寻-月光",
-      "category": "audio",
-      "tags" 		 : "music",
-      "url"      : "/audio/2018-11-11/%E9%AC%BC%E6%9D%9F%E5%8D%83%E5%AF%BB-%E6%9C%88%E5%85%89.html",
-      "date"     : "2018-11-11"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fx46ulhwn2g208v04qqv7.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "马晓旭阿迪达斯广告",
-      "category": "gif",
-      "tags" 		 : "马晓旭,中国女足,广告,阿迪达斯,2007",
-      "url"      : "/gif/2018-11-11/%E9%A9%AC%E6%99%93%E6%97%AD%E9%98%BF%E8%BF%AA%E8%BE%BE%E6%96%AF%E5%B9%BF%E5%91%8A.html",
-      "date"     : "2018-11-11"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fx3x3qrjq1g208c04px6s.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "罗比尼奥死亡之舞",
-      "category": "gif",
-      "tags" 		 : "罗比尼奥,巴西,国家队,过人",
-      "url"      : "/gif/2018-11-11/%E7%BD%97%E6%AF%94%E5%B0%BC%E5%A5%A5%E6%AD%BB%E4%BA%A1%E4%B9%8B%E8%88%9E.html",
-      "date"     : "2018-11-11"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fx479y70p2g208w05w7wk.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "梁毅苗",
-      "category": "gif",
-      "tags" 		 : "梁毅苗,主持人,搞笑",
-      "url"      : "/gif/2018-11-11/%E6%A2%81%E6%AF%85%E8%8B%97.html",
-      "date"     : "2018-11-11"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fx4755bvrbg20bw06mu0y.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "小朋友",
-      "category": "gif",
-      "tags" 		 : "小朋友,广告,过人",
-      "url"      : "/gif/2018-11-11/%E5%B0%8F%E6%9C%8B%E5%8F%8B.html",
-      "date"     : "2018-11-11"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "",
-      "videoUrl"    : "https://player.youku.com/embed/XMzkxNDI2NzE2OA==",
-      "audioUrl"    : "",
-      "title"    : "2018俄罗斯世界杯开赛前itv制作的各大豪门精彩花絮",
-      "category": "video",
-      "tags" 		 : "世界杯,2018,俄罗斯,经典",
-      "url"      : "/video/2018-11-11/2018%E4%BF%84%E7%BD%97%E6%96%AF%E4%B8%96%E7%95%8C%E6%9D%AF%E5%BC%80%E8%B5%9B%E5%89%8Ditv%E5%88%B6%E4%BD%9C%E7%9A%84%E5%90%84%E5%A4%A7%E8%B1%AA%E9%97%A8%E7%B2%BE%E5%BD%A9%E8%8A%B1%E7%B5%AE.html",
-      "date"     : "2018-11-11"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fwzxz904yeg20a0050kjl.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "萨内蒂边路突破",
-      "category": "gallery",
-      "tags" 		 : "萨内蒂,国际米兰,意甲,2012-2013",
-      "url"      : "/gallery/2018-11-07/%E8%90%A8%E5%86%85%E8%92%82%E8%BE%B9%E8%B7%AF%E7%AA%81%E7%A0%B4.html",
-      "date"     : "2018-11-07"
-    } ,
-  
-    {
-      "type"    : "",
-      "featimg"    : "https://ws1.sinaimg.cn/large/7bb8bd97gy1fww44iebq9g20m80go7wk.gif",
-      "videoUrl"    : "",
-      "audioUrl"    : "",
-      "title"    : "巴西小姐姐",
-      "category": "gif",
-      "tags" 		 : "巴西,球迷,女球迷,比心",
-      "url"      : "/gif/2018-11-04/%E5%B7%B4%E8%A5%BF%E5%B0%8F%E5%A7%90%E5%A7%90.html",
-      "date"     : "2018-11-04"
-    } 
-  
+      "featimg"    : "{{ post.featimg | escape }}",
+      "videoUrl"    : "{{ post.videoUrl | escape }}",
+      "audioUrl"    : "{{ post.audioUrl | escape }}",
+      "title"    : "{{ post.title | escape }}",
+      "category": "{{ post.category }}",
+      "tags" 		 : "{{ post.tags | join: ','}}",
+      "url"      : "{{ post.url }}",
+      "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
 ]

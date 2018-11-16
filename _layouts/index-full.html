@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body class="index">
+       <div class="scanlines"></div>
+       <header class="head">
+           {% include nav.html %}
+        </header>
+        <div class="margin">
+            <div class="content">
+                {% if page.title %}<h5 class="title">{{ page.title }}</h5>{% endif %}
+                <!-- <div class="switch">
+                    <div id="grid"><span></span></div>
+                    <div id="classic"><span></span></div>
+                </div> -->
+                <div class="articles">
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+        {% include footer.html %}
+        {% if site.infinite_scroll == true %}
+            <script src="/public/js/infinite.min.js"></script>
+        {% endif %}
+    </body>
+</html>
