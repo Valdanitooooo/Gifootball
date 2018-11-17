@@ -128,8 +128,6 @@ perPageItem: 3
             htmlArr += '<div class="actions">\
                             <a href = "'+ currentData.url + '">'+ currentData.title +'</a>\
                             <i class="iconfont icon-time"></i><span class="date">'+ currentData.date +'</span>\
-                            <i class="iconfont icon-see"></i>\
-                            <span class="date" data-hk-page="'+ "{{ site.baseurl }}" + currentData.url + '"></span>\
                         </div>'; 
             htmlArr += '<div class="tagscloud"><ul>';
             htmlArr += tagsHtml(currentData.tags);

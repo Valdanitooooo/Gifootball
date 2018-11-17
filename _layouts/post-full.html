@@ -34,7 +34,7 @@
                         {% if "video" == page_type %}
                             {% if page.videoUrl %}
                                 <div class="video-container">
-                                    <iframe src="{{page.videoUrl}}" allowfullscreen></iframe>
+                                    <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe>
                                 </div>
                             {% endif %}
                         {% elsif "audio" == page_type %}
@@ -54,9 +54,9 @@
                     </div>
                     {% if page.category %}
                     <div class="date-see">
-                        <i class="iconfont icon-time"></i><span class="date">{{ page.date | date: '%Y-%m-%d' }}</span>
+                        <i class="iconfont icon-time"></i><span class="date">&nbsp;{{ page.date | date: '%Y-%m-%d' }}&nbsp;</span>
                         <i class="iconfont icon-see"></i>
-                        <span class="date" data-hk-page="current"></span>
+                        <span class="date" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
                     </div>
                     {% endif %}
                     <div class="post-content">
