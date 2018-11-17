@@ -1788,7 +1788,7 @@ pre,.highlight pre,.highlight .hll {
 	align-items: flex-start;
 	width: 100%;
 	box-sizing: border-box;
-	background: #202020;
+	background: rgba(0, 0, 0, 0.44);
 }
 
 .masonry a {
@@ -1946,23 +1946,6 @@ pre,.highlight pre,.highlight .hll {
 	left: 0;
 }
 
-#imagelightbox-close {
-	color: #FDFDFD;
-	position: fixed;
-	z-index: 10002;
-	top: 2em;
-	right: 2em;
-	transition: 0.3s ease;
-	border: 0px solid transparent;
-	font-size: 2em;
-	background: transparent;
-}
-
-#imagelightbox-close:hover,#imagelightbox-close:focus {
-	color: #cacaca;
-	cursor: pointer;
-}
-
 #imagelightbox-caption {
 	text-align: center;
 	color: #dedede;
@@ -1986,6 +1969,7 @@ pre,.highlight pre,.highlight .hll {
 	top: 50%;
 	margin-top: -3.75em;
 	border: 0px solid transparent;
+	outline: none;
 }
 
 .imagelightbox-arrow:hover {
@@ -1997,26 +1981,26 @@ pre,.highlight pre,.highlight .hll {
 }
 
 .imagelightbox-arrow-left:before {
-	border-left: 2px solid #FDFDFD;
-	border-bottom: 2px solid #FDFDFD;
+	border-left: 2px solid rgba(134,172,163,0.90);
+	border-bottom: 2px solid rgba(134,172,163,0.90);
 }
 
-.imagelightbox-arrow-left:hover:before {
+/* .imagelightbox-arrow-left:hover:before {
 	border-color: #b1b1b1;
-}
+} */
 
 .imagelightbox-arrow-right {
 	right: 2.5em;
 }
 
 .imagelightbox-arrow-right:before {
-	border-top: 2px solid #FDFDFD;
-	border-right: 2px solid #FDFDFD;
+	border-top: 2px solid rgba(134,172,163,0.90);
+	border-right: 2px solid rgba(134,172,163,0.90);
 }
 
-.imagelightbox-arrow-right:hover:before {
+/* .imagelightbox-arrow-right:hover:before {
 	border-color: #b1b1b1;
-}
+} */
 
 .imagelightbox-arrow:before {
 	width: 3em;
@@ -2029,7 +2013,7 @@ pre,.highlight pre,.highlight .hll {
 	margin-bottom: -0.125em;
 }
 
-#imagelightbox-loading,#imagelightbox-overlay,#imagelightbox-close,#imagelightbox-caption,#imagelightbox-nav,.imagelightbox-arrow {
+#imagelightbox-loading,#imagelightbox-overlay,#imagelightbox-caption,#imagelightbox-nav,.imagelightbox-arrow {
 	-webkit-animation: fade-in 0.25s linear;
 	animation: fade-in 0.25s linear;
 }
@@ -2037,11 +2021,6 @@ pre,.highlight pre,.highlight .hll {
 @media only screen and (max-width: 41.25em) {
 	#container {
 		width: 100%;
-	}
-
-	#imagelightbox-close {
-		top: 1.25em;
-		right: 1.25em;
 	}
 
 	#imagelightbox-nav {
