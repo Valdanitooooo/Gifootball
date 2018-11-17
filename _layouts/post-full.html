@@ -43,13 +43,17 @@
                                     <iframe src="{{ page.audioUrl }}"></iframe>
                                 </div>
                             {% endif %}
-                        {% else %} 
+                        {% elsif "gallery" == page_type %} 
+                            {% include gallery_lightbox.html %}
+                        {% else %}
                             {% if page.featimg %}
                             <img class="featimg" src="{{ page.featimg }}" alt="{{ page.featimg }}">
                             {% endif %} 
-                        {% endif %}
-                        {% if "gallery" == page_type %}
-                            {% include gallery_lightbox.html %}
+                            {% if page.videoUrl %}
+                            <div class="video-container">
+                                <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe>
+                            </div>
+                            {% endif %}
                         {% endif %}
                     </div>
                     {% if page.category %}
