@@ -34,7 +34,7 @@ perPageItem: 3
     var totalNum = 0;
     var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="/public/img/loading.gif"></div>');
     var articles;
-    $.getJSON("/public/json/search.json").done(function (data) {
+    $.getJSON("/public/json/category/"+keyword+".json").done(function (data) {
         articles = data;
         totalTags = getTotalTags(articles);
         totalNum = articles.length;
@@ -131,14 +131,6 @@ perPageItem: 3
             htmlArr += '<div class="tagscloud"><ul>';
             htmlArr += tagsHtml(currentData.tags);
             htmlArr += '</ul></div>';
-            // htmlArr += '<span class="date">{{ post.date | date: "% B % d, % Y" }}</span>\
-			// 	<a href = "'+ currentData.url + '" >\
-			// 		<h5>'+ currentData.title + '</h5>\
-			// 	</a>\
-			// 	<p class="post-content">{{ post.content | strip_html | truncatewords: 15 }}</p>\
-			// 	<p class="actions">\
-			// 		<a href="'+ currentData.url + '">Read More</a>\
-			// 	</p>';
             htmlArr += '</article>';
         }
         $('div.loading').remove();
