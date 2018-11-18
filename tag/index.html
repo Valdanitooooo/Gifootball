@@ -40,6 +40,9 @@ perPageItem: 3
         totalTags = getTotalTags(articles);
         totalNum = articles.length;
         initArticles(); 
+        $('img.lazyload').lazyload({
+            effect: 'fadeIn'
+        });
     });
 
 
@@ -121,7 +124,7 @@ perPageItem: 3
             } else {
                 if (!!currentData.featimg) {
                     htmlArr += '<a href="' + currentData.url + '" class="noline">\
-                        <img src = "'+ currentData.featimg + '" alt="' + currentData.featimg + '"></a>';
+                        <img class="lazyload" src="/public/img/loading.gif" data-src="'+ currentData.featimg + '" alt="' + currentData.title + '"></a>';
                 }
             }
 
