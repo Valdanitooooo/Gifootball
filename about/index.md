@@ -19,6 +19,8 @@ title: 关于本站
   
   显示效果: 自适应pc、平板电脑及手机端；本汪是后端开发，在前端的样式和UI设计上不太在行，也是一点点修改到现在这样的效果，以后还会不断优化，不断改善。
   
+  本站公众号: gifootball，做着玩的，没必要关注。
+
   本站源码: 基于Jekyll工具构建，模板代码基于[gridster-jekyll-theme](https://github.com/DigitalMindCH/gridster-jekyll-theme){:target="_blank"}，做了不少修改。得之开源，还之开源，本站模板[源码](https://zh.wikipedia.org/wiki/%E8%B6%B3%E7%90%83){:target="_blank"}可以任意使用，除_posts目录外。
 
 ###### 2.个人信息
