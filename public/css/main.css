@@ -1801,7 +1801,7 @@ pre,.highlight pre,.highlight .hll {
 }
 
 .masonry a img {
-	width: 100%;
+	/* width: 100%; */
 	opacity: 0.8;
 }
 

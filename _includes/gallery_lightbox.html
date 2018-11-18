@@ -2,7 +2,7 @@
 <div class="masonry">
     {% for gallery in page.gallery %} {% for image in gallery.images %}
     <a href="{{ image.url }}" data-imagelightbox="f" class="noline">
-        <img src="{{ image.url }}"
+        <img class="lazyload" src="/public/img/loading.gif" data-src="{{ image.url }}"
             alt="{{ page.title }}"> 
     </a>
     {% endfor %} {% endfor %}

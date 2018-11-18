@@ -47,7 +47,7 @@
                             {% include gallery_lightbox.html %}
                         {% else %}
                             {% if page.featimg %}
-                            <img class="featimg" src="{{ page.featimg }}" alt="{{ page.title }}">
+                            <img class="featimg lazyload" src="/public/img/loading.gif" data-src="{{ page.featimg }}" alt="{{ page.title }}">
                             {% endif %} 
                             {% if page.videoUrl %}
                             <div class="video-container">
@@ -83,4 +83,9 @@
         {% include footer.html %}
         
     </body>
+    <script>
+        $('img.lazyload').lazyload({
+            effect: 'fadeIn'
+        });
+    </script>
 </html>
