@@ -1065,8 +1065,9 @@ article {
 	padding: 0 20px;
 }
 
-article img {
+article a img {
 	transition: 0.3s all ease;
+	max-height: 250px;
 }
 
 article a:hover img {
