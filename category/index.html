@@ -129,7 +129,7 @@ perPageItem: 3
 
             htmlArr += '<div class="actions">\
                             <a href = "'+ currentData.url + '">'+ currentData.title +'</a>\
-                            <i class="iconfont icon-time"></i><span class="date">'+ currentData.date +'</span>\
+                            <span style="display:inline-block;"><i class="iconfont icon-time"></i><span class="date">'+ currentData.date +'</span></span>\
                         </div>'; 
             htmlArr += '<div class="tagscloud"><ul>';
             htmlArr += tagsHtml(currentData.tags);
