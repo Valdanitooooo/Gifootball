@@ -1,6 +1,6 @@
 ---
 layout: page-full
-# title: 标签云
+title: 标签云
 ---
 
 <div class="tagscloud">
