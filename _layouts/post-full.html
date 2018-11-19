@@ -33,9 +33,11 @@
                         {% assign page_type = page.categories.first %}
                         {% if "video" == page_type %}
                             {% if page.videoUrl %}
-                                <div class="video-container">
-                                    <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe>
-                                </div>
+                                <!-- <div class="video-container"> -->
+                                    {% assign videoId = page.videoUrl %}
+                                    {% include youku_player.html %}
+                                    <!-- <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe> -->
+                                <!-- </div> -->
                             {% endif %}
                         {% elsif "audio" == page_type %}
                             {% if page.audioUrl %}

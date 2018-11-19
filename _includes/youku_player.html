@@ -1,0 +1,11 @@
+<div id="youkuplayer" style="width:580px;height:326px;margin: 0 auto;"></div>
+<script type="text/javascript" src="//player.youku.com/jsapi"></script>
+<script type="text/javascript">
+    var player = new YKU.Player('youkuplayer', {
+        styleid: '0',
+        client_id: '152011440e2ee7ef',
+        vid: '{{ videoId }}',
+        newPlayer: true,
+        autoplay: false
+    });
+</script>
