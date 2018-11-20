@@ -2,7 +2,7 @@ title: Gifootball
 description: 足球纪念馆
 baseurl:
 permalink: /:categories/:year-:month-:day/:title.html
-paginate: 6
+paginate: 9
 paginate_path: /page/:num/
 infinite_scroll: true #change to false if you want to use pagination
 plugins: [jekyll-paginate]
@@ -15,3 +15,9 @@ kramdown:
 # relative_permalinks: false
 tucao: 40428
 exclude: [.git, .gitignore, package.json, node_modules, _site,docker-compose.yml,Gemfile]
+
+youku_client_id: 152011440e2ee7ef
+valine_app_id: e9wJgylSvjTXzbxHOVjbKP6e-gzGzoHsz
+valine_app_key: KSS08hLw9AkuKzSYC7PV1B88
+baidu_analysis: fbaddcdc614ca0725679f169efb480a5
+google_analysis: UA-129341547-1

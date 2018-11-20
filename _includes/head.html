@@ -26,16 +26,16 @@
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?fbaddcdc614ca0725679f169efb480a5";
+        hm.src = "https://hm.baidu.com/hm.js?{{site.baidu_analysis}}";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129341547-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{site.google_analysis}}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'UA-129341547-1');
+    gtag('config', '{{site.google_analysis}}');
 </script>
