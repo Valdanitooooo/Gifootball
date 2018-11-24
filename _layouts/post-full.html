@@ -22,7 +22,7 @@
                             <div class="tagscloud">
                                 <ul>
                                 {% for tag in page.tags %}
-                                <li><a href="/tag?q={{ tag | url_encode}}">{{ tag }}</a></li>
+                                <li><a href="/tag?q={{ tag | url_encode}}">{{ tag }}</a><span>{{ site.posts | where_exp: 'post', 'post.tags contains tag' | size }}</span></li>
                                 {% endfor %}
                                 </ul>
                             </div>
