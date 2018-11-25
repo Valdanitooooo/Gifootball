@@ -135,14 +135,6 @@ perPageItem: 3
             htmlArr += '<div class="tagscloud"><ul>';
             htmlArr += tagsHtml(currentData.tags);
             htmlArr += '</ul></div>';
-            // htmlArr += '<span class="date">{{ post.date | date: "% B % d, % Y" }}</span>\
-			// 	<a href = "'+ currentData.url + '" >\
-			// 		<h5>'+ currentData.title + '</h5>\
-			// 	</a>\
-			// 	<p class="post-content">{{ post.content | strip_html | truncatewords: 15 }}</p>\
-			// 	<p class="actions">\
-			// 		<a href="'+ currentData.url + '">Read More</a>\
-			// 	</p>';
             htmlArr += '</article>';
         }
         $('div.loading').remove();
