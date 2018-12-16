@@ -574,7 +574,6 @@ body.overflow {
 #menu li>a {
 	width: 100%;
 	display: block;
-	font-size: 1em;
 }
 
 @media screen and (max-width: 1068px) {
@@ -2216,4 +2215,31 @@ article .actions .iconfont, .date-see .iconfont{
 }
 .date-see {
 	float: right;
+}
+
+.emoji {
+    height: 1.2rem;
+    vertical-align: middle;
+}
+
+#language-choose:hover > ul {
+    display: block;
+}
+
+#language-choose ul li {
+    list-style: none;
+	/* display: inline-block; */
+	position: relative;
+	display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+#language-choose ul {
+	margin: 0;
+    padding: 0;
+	white-space: nowrap;
+	position: absolute;
+    /* top: 100%; */
+    list-style: none;
+    display: none;
 }
