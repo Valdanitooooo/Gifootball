@@ -1,0 +1,18 @@
+<head>
+    <script src="/public/js/av-min.js"></script>
+    <script src='/public/js/en/Valine.min.js'></script>
+</head>
+
+<body>
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '{{ site.valine_app_id }}',
+            appKey: '{{ site.valine_app_key }}',
+            placeholder: 'Leave a comment',
+            avatar: 'monsterid',
+            meta: ['nick', 'mail']
+        })
+    </script>
+</body>

@@ -1,4 +1,5 @@
 ---
+locate: cn
 initItem: 3
 perPageItem: 3
 ---
@@ -11,7 +12,7 @@ perPageItem: 3
 <body class="index">
     <div class="scanlines"></div>
     <header class="head">
-        {% include nav.html %}
+        {% include cn/nav.html %}
     </header>
     <div class="margin">
         <div class="searchArea">
@@ -67,7 +68,7 @@ perPageItem: 3
     var totalNum = 0;
     var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="/public/img/loading_list.svg"></div>');
     var articles;
-    $.getJSON("/public/json/search.json").done(function (data) {
+    $.getJSON("/public/json/cn/search.json").done(function (data) {
         articles = data;
         totalTags = getTotalTags(articles);
         totalNum = articles.length;
@@ -84,7 +85,7 @@ perPageItem: 3
             $("#input-tags").val(keyword);
         }
         $(".posts").empty();
-        $.getJSON("/public/json/search.json").done(function (data) {
+        $.getJSON("/public/json/cn/search.json").done(function (data) {
             articles = data;
             totalTags = getTotalTags(articles);
             totalNum = articles.length;
@@ -239,6 +240,5 @@ perPageItem: 3
         pageNum++;
         endNum += perPageItem;
     }
-    
 </script>
 </html>

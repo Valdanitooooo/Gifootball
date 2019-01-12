@@ -1,0 +1,194 @@
+---
+initItem: 3
+perPageItem: 3
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% include head.html %}
+</head>
+<body class="index">
+    <div class="scanlines"></div>
+    <header class="head">
+        {% include cn/nav.html %}
+    </header>
+    <div class="margin">
+        <div class="content">
+            <div class="articles posts">
+                
+            </div>
+        </div>
+    </div>
+    {% include footer.html %}
+</body>
+
+<script>
+
+    var keyword = getQueryString('q');
+ 
+    var pageNum = 0;
+    var perPageItem = "{{ page.perPageItem }}";
+    var totalTags = "";
+    var startNum = 0;
+    var endNum = "{{ page.initItem }}";
+    var totalNum = 0;
+    var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="/public/img/loading_list.svg"></div>');
+    var articles;
+    $.getJSON("/public/json/cn/search.json").done(function (data) {
+        articles = data;
+        totalTags = getTotalTags(articles);
+        totalNum = articles.length;
+        initArticles(); 
+        $('img.lazyload').lazyload({
+            effect: 'fadeIn'
+        });
+    });
+
+
+    function getTotalTags(articles){
+        var totalTagsArr = [];
+        for(var i = 0, len = articles.length; i < len; i++){
+            var tagsArr = articles[i].tags.split(",");
+            totalTagsArr.push.apply(totalTagsArr, tagsArr);
+        }
+        var totalTagsMap = totalTagsArr.reduce(function (allElements, ele) {
+            if (ele in allElements) {
+                allElements[ele]++;
+            } else {
+                allElements[ele] = 1;
+            }
+            return allElements;
+        }, {});
+        return totalTagsMap;
+    }
+	/**
+	 * get the param from url
+	 * 
+	 * @param {Object} name
+	*/
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var result = window.location.search.substr(1).match(reg);
+        return result ? decodeURIComponent(result[2]) : null;
+    }
+
+	/**
+	 * get the bottom offset of an element
+	*/
+    function getOffsetBottom(selector) {
+        if ($(selector).offset() == undefined) {
+            return 1;
+        }
+        var offsetTop = $(selector).offset().top;
+        var documentHeight = $(selector).height();
+        var offsetBottom = $(window).height() - (offsetTop + documentHeight);
+        return offsetBottom;
+    }
+
+	/**
+	 * init the frist batch of articles to activate waypoint
+	 */
+    function initArticles() {
+        var offsetBottom = getOffsetBottom('div.posts .page-article:last');
+        while (offsetBottom > 0 && startNum < totalNum) {
+            getArticles();
+            offsetBottom = getOffsetBottom('div.posts .page-article:last');
+            increment();
+        }
+        if ($('div.posts .page-article:last').length == 0) {
+            $('div.posts').html('<p style="margin: 5em auto 2.5em;">There are no post matches.</p>')
+        } else {
+            getArticlesInfinite();
+        }
+    }
+
+    function getArticlesInfinite() {
+        getArticles();
+        createWaypoint();
+    }
+
+    function getArticles() {
+        $('div.posts').append($loading);
+        var htmlArr = '';
+        var currentData = null;
+        endNum = endNum > totalNum ? totalNum : endNum;
+        for (var i = startNum; i < endNum; i++) {
+            currentData = articles[i];
+            if (!!keyword && !matchKeyword(currentData)) continue;
+            htmlArr += '<article class="page-article">';
+            if ("video" == currentData.category && !!currentData.videoUrl) {
+                htmlArr += '<div class="video-container"><iframe src="https://player.youku.com/embed/' + currentData.videoUrl + '" allowfullscreen ></iframe></div>';
+            } else if ("audio" == currentData.category && !!currentData.audioUrl) {
+                htmlArr += '<div class="video-container"><iframe src="' + currentData.audioUrl + '"></iframe></div>';
+            } else {
+                if (!!currentData.featimg) {
+                    htmlArr += '<a href="' + currentData.url + '" class="noline">\
+                        <img class="lazyload" src="/public/img/loading.svg" data-src="'+ currentData.featimg + '" alt="' + currentData.title + '"></a>';
+                }
+            }
+
+            htmlArr += '<div class="actions">\
+                            <a href = "'+ currentData.url + '">'+ currentData.title +'</a>\
+                            <span style="display:inline-block;"><i class="iconfont icon-time"></i><span class="date">'+ currentData.date +'</span></span>\
+                        </div>'; 
+            htmlArr += '<div class="tagscloud"><ul>';
+            htmlArr += tagsHtml(currentData.tags);
+            htmlArr += '</ul></div>';
+            htmlArr += '</article>';
+        }
+        $('div.loading').remove();
+        $('.posts').append(htmlArr);
+    }
+
+    function tagsHtml(tags){
+        var html = '';
+        var tagArr = tags.split(",");
+        for (i in tagArr){
+            var aTag = tagArr[i];
+            html+='<li><a href="/tag?q='+ encodeURI(aTag) +'">' + aTag +'</a>\
+                <span>'+ totalTags[aTag] +'</span></li>';
+        }
+        return html;
+    }
+
+    function createWaypoint() {
+        $('div.posts .page-article:last').waypoint(function (direction) {
+            if (startNum == totalNum) {
+                this.destroy();
+                return; //all articles have been loaded
+            }
+            if (direction == "down") {
+                this.destroy();
+                increment();
+                getArticlesInfinite();
+            }
+        }, {
+                offset: 'bottom-in-view'
+            });
+    }
+
+	/**
+	 * check whether the article matches the keyword 
+	 * @param {Object} post
+	 */
+    function matchKeyword(post) {
+        var tagsArr = post.tags.split(",");
+        var hasTag = false;
+        for(var i in tagsArr){
+            if(keyword == tagsArr[i]){
+                hasTag = true;
+                break;
+            }
+        }
+        return hasTag;
+    }
+
+    function increment() {
+        startNum = endNum; //let next startNum equals last endNum
+        pageNum++;
+        endNum += perPageItem;
+    }
+
+</script>
+</html>

@@ -1,4 +1,5 @@
 ---
+locate: en
 initItem: 3
 perPageItem: 3
 ---
@@ -11,7 +12,7 @@ perPageItem: 3
 <body class="index">
     <div class="scanlines"></div>
     <header class="head">
-        {% include nav.html %}
+        {% include en/nav.html %}
     </header>
     <div class="margin">
         <div class="searchArea">
@@ -47,7 +48,7 @@ perPageItem: 3
     </div>
     {% include footer.html %}
 </body>
-<script src="/public/js/search.js"></script>
+<script src="/public/js/en/search.js"></script>
 
 <script>
 	/**
@@ -84,7 +85,7 @@ perPageItem: 3
             $("#input-tags").val(keyword);
         }
         $(".posts").empty();
-        $.getJSON("/public/json/search.json").done(function (data) {
+        $.getJSON("/public/json/en/search.json").done(function (data) {
             articles = data;
             totalTags = getTotalTags(articles);
             totalNum = articles.length;

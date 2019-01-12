@@ -1,0 +1,30 @@
+<!-- an archive listing the posts by month -->
+ <ul class="archive">
+{% assign count = 1 %}
+{% for post in site.categories.en reversed %}
+    {% assign month = post.date | date: '%Y-%m' %}
+    {% assign nmonth = post.next.date | date: '%Y-%m' %}
+    {% if month != nmonth %}
+        {% assign count = count | append: ', ' %}
+        {% assign counts = counts | append: count %}
+        {% assign count = 1 %}
+    {% else %}
+        {% assign count = count | plus: 1 %}
+    {% endif %}
+{% endfor %}
+
+{% assign counts = counts | split: ', ' | reversed %}
+{% assign i = counts | size %}
+
+{% for post in site.categories.cn %}
+    {% assign preindex = forloop.index | minus: 2 %}
+    {% assign prepost = site.categories.cn[preindex] %}
+    {% assign month = post.date | date: '%Y-%m' %}
+    {% assign premonth = prepost.date | date: '%Y-%m' %}
+    {% if forloop.first or (month != premonth) %}
+        {% assign i = i | minus: 1 %}
+        <h5>{{ post.date | date: '%Y-%m' }}({{ counts[i] }})</h5>
+    {% endif %}
+    <li><span class="date" >{{ post.date | date:"%Y-%m-%d." }}</span> <a href="{{ post.url | replace: '//', '/'}}">{{ post.title }}({{month}})({{premonth}})</a></li>
+{% endfor %}
+</ul>

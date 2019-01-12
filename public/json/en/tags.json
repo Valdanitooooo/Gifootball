@@ -2,10 +2,26 @@
 layout: null
 ---
 [
-  {% for tag in site.tags %}
-    {
-      "name"    : "{{ tag[0] }}",
-      "size"    : "{{ tag[1].size }}"
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
+    {%- assign lastitem = "*****" | split: "," -%}
+    {%- assign en_tags_all_arr = site.categories.en | map: "en_tags" | sort_natural | concat: lastitem -%}
+    {%- assign temp_strs = "" -%}
+    {%- assign temp_prev_index = 0 -%}
+    {%- assign temp_prev_tag = "" -%}
+    {%- for en_tag in en_tags_all_arr -%}
+        {%- assign temp_str = "#" | append: en_tag| append: "#" -%}
+        {%- if temp_strs contains temp_str -%}
+            {%- assign temp_prev_tag = en_tag -%}
+            {%- continue -%}
+        {%- endif -%}
+        {%- if forloop.index == 1 and temp_prev_tag == "" -%}
+            {%- assign temp_prev_index = forloop.index -%}
+            {%- assign temp_prev_tag = en_tag -%}
+            {%- continue -%}
+        {%- endif -%}
+        {"name":"{{ temp_prev_tag }}","size":{{forloop.index | minus: temp_prev_index }}}
+        {%- unless forloop.last -%},{%- endunless -%}
+        {%- assign temp_strs = temp_strs | append: temp_str -%}
+        {%- assign temp_prev_index = forloop.index -%}
+        {%- assign temp_prev_tag = en_tag -%}
+    {%- endfor -%} 
 ]

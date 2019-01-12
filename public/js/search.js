@@ -1,6 +1,6 @@
 
 var strs = [];
-$.getJSON("/public/json/tags.json").done(function (data) {
+$.getJSON("/public/json/cn/tags.json").done(function (data) {
     strs = data;
 });
 
@@ -44,6 +44,5 @@ $selectize.selectize.on('item_adds', function (value, $item) {
     $selectize.selectize.close();
 });
 $selectize.selectize.on('item_remove', function (value, $item) {
-    console.log(value);
     $selectize.selectize.close();
 });
