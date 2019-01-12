@@ -30,7 +30,7 @@
                         </div>
                         {% endif %}
                         <div class="post-content-prev">
-                        {% assign page_type = page.categories.first %}
+                        {% assign page_type = page.type %}
                         {% if "video" == page_type %}
                             {% if page.videoUrl %}
                                 <!-- <div class="video-container"> -->
@@ -58,7 +58,7 @@
                             {% endif %}
                         {% endif %}
                     </div>
-                    {% if page.category %}
+                    {% if page_type %}
                     <div class="date-see">
                         <i class="iconfont icon-time"></i><span class="date">&nbsp;{{ page.date | date: '%Y-%m-%d' }}&nbsp;</span>
                         <i class="iconfont icon-see"></i>
@@ -69,14 +69,14 @@
                         {{ content }}
                     </div>
                     </article>
-                    {% if page.category %}
+                    {% if page_type %}
                         {% include cn/comment.html %}
                     {% endif %}
                     <div class="post-nav">
                         {% if page.previous.url %}
                         <a class="btn prev" href="{{ page.previous.url | replace: '//', '/' }}"><i class="fa fa-angle-left"></i><span class="short"> prev</span><span class="long">ious</span></a>
                         {% endif %}
-                        {% if page.next.url %}
+                        {% if page.locate == page.next.locate %}
                         <a class="btn next" href="{{ page.next.url | replace: '//', '/' }}"><span class="short">next </span><span class="long"></span><i class="fa fa-angle-right"></i></a>
                         {% endif %}
                     </div>

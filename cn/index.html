@@ -168,9 +168,9 @@ perPageItem: 3
             currentData = articles[i];
             if (!!keyword && !matchKeyword(currentData)) continue;
             htmlArr += '<article class="page-article">';
-            if ("video" == currentData.category && !!currentData.videoUrl) {
+            if ("video" == currentData.type && !!currentData.videoUrl) {
                 htmlArr += '<div class="video-container"><iframe src="https://player.youku.com/embed/' + currentData.videoUrl + '" allowfullscreen ></iframe></div>';
-            } else if ("audio" == currentData.category && !!currentData.audioUrl) {
+            } else if ("audio" == currentData.type && !!currentData.audioUrl) {
                 htmlArr += '<div class="video-container"><iframe src="' + currentData.audioUrl + '"></iframe></div>';
             } else {
                 if (!!currentData.featimg) {

@@ -30,7 +30,7 @@
                         </div>
                         {% endif %}
                         <div class="post-content-prev">
-                        {% assign page_type = page.categories.first %}
+                        {% assign page_type = page.type %}
                         {% if "video" == page_type %}
                             {% if page.videoUrl %}
                                 <!-- <div class="video-container"> -->
@@ -58,7 +58,7 @@
                             {% endif %}
                         {% endif %}
                     </div>
-                    {% if page.category %}
+                    {% if page_type %}
                     <div class="date-see">
                         <i class="iconfont icon-time"></i><span class="date">&nbsp;{{ page.date | date: '%Y-%m-%d' }}&nbsp;</span>
                         <i class="iconfont icon-see"></i>
@@ -69,7 +69,7 @@
                         {{ content }}
                     </div>
                     </article>
-                    {% if page.category %}
+                    {% if page_type %}
                         {% include en/comment.html %}
                     {% endif %}
                     <div class="post-nav">

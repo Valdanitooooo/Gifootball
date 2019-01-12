@@ -8,7 +8,7 @@ layout: null
       "videoUrl" : "{{ post.videoUrl | escape }}",
       "audioUrl" : "{{ post.audioUrl | escape }}",
       "title"    : "{{ post.title | escape }}",
-      "category" : "gallery",
+      "type" : "gallery",
       "tags" 		 : "{{ post.tags | join: ','}}",
       "url"      : "{{ post.url }}",
       "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
