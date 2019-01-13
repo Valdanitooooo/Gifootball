@@ -16,17 +16,15 @@
                         <h3 class="post-title">
                             {{ page.title }}
                         </h3>
-                        {% if page.tags %}
+                        {% if page.en_tags %}
                         <div class="catsandtags">
-                            {% if page.tags %}
                             <div class="tagscloud">
                                 <ul>
-                                {% for tag in page.tags %}
-                                <li><a href="/tag?q={{ tag | url_encode}}">{{ tag }}</a><span>{{ site.posts | where_exp: 'post', 'post.tags contains tag' | size }}</span></li>
+                                {% for tag in page.en_tags %}
+                                <li><a href="/tag?q={{ tag | url_encode}}">{{ tag }}</a><span>{{ site.posts | where_exp: 'post', 'post.en_tags contains tag' | size }}</span></li>
                                 {% endfor %}
                                 </ul>
                             </div>
-                            {% endif %}
                         </div>
                         {% endif %}
                         <div class="post-content-prev">
