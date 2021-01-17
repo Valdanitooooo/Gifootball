@@ -2156,7 +2156,7 @@ pre,.highlight pre,.highlight .hll {
     width: 100%;
     height: 100%;
     z-index: -1;
-	background: url(/public/img/tile.png);
+	background: url(//cdn.jsdelivr.net/gh/Valdanitooooo/Gifootball/public/img/tile.png);
 }
 
 .searchArea{
