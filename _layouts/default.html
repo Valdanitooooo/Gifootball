@@ -13,10 +13,10 @@
 					<img src="/public/img/logo.png" class="masthead-img masthead-inner masthead-shrink"/>						
 					<h5 class="masthead-title masthead-inner masthead-shrink" >
 					{% if page.url contains 'category' %}
-						<a href="{{page.url}}" title="Home">{{ page.cn }}</a>
+						<a href="{{page.url}}" title="Home">{{ page }}</a>
 			            <small class="font-kt">分类文章</small>					    
     				{% elsif page.url contains 'tag' %}
-    					<a href="{{ page.url }}" title="Home">{{ page.cn }}</a>
+    					<a href="{{ page.url }}" title="Home">{{ page }}</a>
 			            <small>按标签分类</small>
     				{% else %}
     					<a href="/" title="Home">{{ site.title }}</a>

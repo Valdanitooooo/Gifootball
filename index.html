@@ -12,7 +12,7 @@ perPageItem: 3
 <body class="index">
     <div class="scanlines"></div>
     <header class="head">
-        {% include cn/nav.html %}
+        {% include nav.html %}
     </header>
     <div class="margin">
         <div class="searchArea">
@@ -68,7 +68,7 @@ perPageItem: 3
     var totalNum = 0;
     var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="/public/img/loading_list.svg"></div>');
     var articles;
-    $.getJSON("/public/json/cn/search.json").done(function (data) {
+    $.getJSON("/public/json/search.json").done(function (data) {
         articles = data;
         totalTags = getTotalTags(articles);
         totalNum = articles.length;
@@ -85,7 +85,7 @@ perPageItem: 3
             $("#input-tags").val(keyword);
         }
         $(".posts").empty();
-        $.getJSON("/public/json/cn/search.json").done(function (data) {
+        $.getJSON("/public/json/search.json").done(function (data) {
             articles = data;
             totalTags = getTotalTags(articles);
             totalNum = articles.length;
@@ -168,14 +168,14 @@ perPageItem: 3
             currentData = articles[i];
             if (!!keyword && !matchKeyword(currentData)) continue;
             htmlArr += '<article class="page-article">';
-            if ("video" == currentData.type && !!currentData.videoUrl) {
+            if ("video" == currentData.category && !!currentData.videoUrl) {
                 htmlArr += '<div class="video-container"><iframe src="https://player.youku.com/embed/' + currentData.videoUrl + '" allowfullscreen ></iframe></div>';
-            } else if ("audio" == currentData.type && !!currentData.audioUrl) {
+            } else if ("audio" == currentData.category && !!currentData.audioUrl) {
                 htmlArr += '<div class="video-container"><iframe src="' + currentData.audioUrl + '"></iframe></div>';
             } else {
                 if (!!currentData.featimg) {
                     htmlArr += '<a href="' + currentData.url + '" class="noline">\
-                        <img class="lazyload" src="/public/img/loading.svg" data-src="{{ site.pic_bed_root }}'+ currentData.featimg + '" alt="' + currentData.title + '"></a>';
+                        <img class="lazyload" src="/public/img/loading.svg" data-src="{{ site.pic_bed_featimg_root }}'+ currentData.featimg + '?type=img" alt="' + currentData.title + '"></a>';
                 }
             }
 
@@ -240,5 +240,6 @@ perPageItem: 3
         pageNum++;
         endNum += perPageItem;
     }
+    
 </script>
 </html>

@@ -1,6 +1,6 @@
 
 var strs = [];
-$.getJSON("/public/json/cn/tags.json").done(function (data) {
+$.getJSON("/public/json/tags.json").done(function (data) {
     strs = data;
 });
 

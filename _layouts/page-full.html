@@ -7,7 +7,7 @@
     <body>
         <div class="scanlines"></div>
         <header class="head">
-            {% include cn/nav.html %}
+            {% include nav.html %}
         </header>
         <div class="margin">
             <div class="content full">
@@ -19,7 +19,7 @@
                             </h4>
                         {% endif %}
                         {% if page.featimg %}
-                            <img class="featimg" src="{{ site.pic_bed_root }}{{ page.featimg }}" alt="{{ page.title }}">
+                            <img class="featimg" src="{{ site.pic_bed_featimg_root }}{{ page.featimg }}?type=img" alt="{{ page.title }}">
                         {% endif %}
                         <div class="post-content">
                             {{ content }}

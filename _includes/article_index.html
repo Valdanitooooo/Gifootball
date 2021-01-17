@@ -23,7 +23,7 @@
     {% else %} 
         {% if post.featimg %}
         <a href="{{ post.url | replace: '//', '/'}}" class="noline">
-            <img src="{{ site.pic_bed_root }}{{ post.featimg }}" alt="{{ post.title }}">
+            <img src="{{ site.pic_bed_featimg_root }}{{ post.featimg }}?type=img" alt="{{ post.title }}">
         </a>
         {% endif %} 
     {% endif %}

@@ -47,7 +47,7 @@
             // $('<div style="background-image:linear-gradient(to bottom, red, red)" \
             // data-value="image">image</div>').insertBefore("#input-tags-selectized")
             $(".posts").empty();
-            $.getJSON("/public/json/cn/search.json").done(function (data) {
+            $.getJSON("/public/json/search.json").done(function (data) {
                 articles = data;
                 totalNum = articles.length;
                 initArticles();
@@ -110,14 +110,14 @@
             currentData = articles[i];
             if (!matchKeyword(currentData)) continue;
             htmlArr += '<article class="page-article">';
-            if ("video" == currentData.type && !!currentData.videoUrl) {
+            if ("video" == currentData.category && !!currentData.videoUrl) {
                 htmlArr += '<div class="video-container"><iframe src = "' + currentData.videoUrl + '" allowfullscreen ></iframe></div>';
-            } else if ("audio" == currentData.type && !!currentData.audioUrl) {
+            } else if ("audio" == currentData.category && !!currentData.audioUrl) {
                 htmlArr += '<div class="video-container"><iframe src = "' + currentData.audioUrl + '"></iframe></div>';
             } else {
                 if (!!currentData.featimg) {
                     htmlArr += '<a href="' + currentData.url + '" class="noline">\
-                        <img src = "{{ site.pic_bed_root }}'+ currentData.featimg + '" alt="' + currentData.title + '"></a>';
+                        <img src = "{{ site.pic_bed_featimg_root }}'+ currentData.featimg + '?type=img" alt="' + currentData.title + '"></a>';
                 }
             }
             htmlArr += '<span class="date">{{ post.date | date: "% B % d, % Y" }}</span>\
@@ -158,7 +158,7 @@
         var contentAll = new Array();
         contentAll.push(post.title);
         contentAll.push(post.tags);
-        contentAll.push(post.type);
+        contentAll.push(post.category);
         contentAll.push(post.content);
         if (contentAll.join('').toString().indexOf(keyword) == -1) {
             return false;

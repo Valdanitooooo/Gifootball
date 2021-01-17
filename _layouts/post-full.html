@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body>
+        <div class="scanlines"></div>
+        <header class="head">
+            {% include nav.html %}
+        </header>
+        <div class="margin">
+            <div class="content full">
+                <div class="content-container">
+                    <article>
+                        <h3 class="post-title">
+                            {{ page.title }}
+                        </h3>
+                        {% if page.tags %}
+                        <div class="catsandtags">
+                            <div class="tagscloud">
+                                <ul>
+                                {% for tag in page.tags %}
+                                <li><a href="/tag?q={{ tag | url_encode}}">{{ tag }}</a><span>{{ site.posts | where_exp: 'post', 'post.tags contains tag' | size }}</span></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="post-content-prev">
+                        {% assign page_type = page.category %}
+                        {% if "video" == page_type %}
+                            {% if page.videoUrl %}
+                                <!-- <div class="video-container"> -->
+                                    {% assign videoId = page.videoUrl %}
+                                    {% include youku_player.html %}
+                                    <!-- <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe> -->
+                                <!-- </div> -->
+                            {% endif %}
+                        {% elsif "audio" == page_type %}
+                            {% if page.audioUrl %}
+                                <div class="video-container">
+                                    <iframe src="{{ page.audioUrl }}"></iframe>
+                                </div>
+                            {% endif %}
+                        {% elsif "gallery" == page_type %} 
+                            {% include gallery_lightbox.html %}
+                        {% elsif "gif" == page_type %}
+                            {% if page.featimg %}
+                            <img class="featimg lazyload" src="/public/img/loading.svg"
+                                data-src="{{ site.pic_bed_root }}{{ page.featimg }}.gif" alt="{{ page.title }}">
+                            {% endif %}
+                            {% if page.videoUrl %}
+                            <div class="video-container">
+                                <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe>
+                            </div>
+                            {% endif %}
+                        {% elsif "image" == page_type %}
+                            {% if page.featimg %}
+                            <img class="featimg lazyload" src="/public/img/loading.svg"
+                                data-src="{{ site.pic_bed_root }}{{ page.featimg }}.jpg" alt="{{ page.title }}">
+                            {% endif %}
+                            {% if page.videoUrl %}
+                            <div class="video-container">
+                                <iframe height=498 width=510 src="{{page.videoUrl}}" allowfullscreen></iframe>
+                            </div>
+                            {% endif %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    {% if page_type %}
+                    <div class="date-see">
+                        <i class="iconfont icon-time"></i><span class="date">&nbsp;{{ page.date | date: '%Y-%m-%d' }}&nbsp;</span>
+                        <i class="iconfont icon-see"></i>
+                        <span class="date" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                    </div>
+                    {% endif %}
+                    <div class="post-content">
+                        {{ content }}
+                    </div>
+                    </article>
+                    {% if page_type %}
+                        {% include comment.html %}
+                    {% endif %}
+                    <div class="post-nav">
+                        {% if page.previous.url %}
+                        <a class="btn prev" href="{{ page.previous.url | replace: '//', '/' }}"><i class="fa fa-angle-left"></i><span class="short"> prev</span><span class="long">ious</span></a>
+                        {% endif %}
+                        {% if page.locate == page.next.locate %}
+                        <a class="btn next" href="{{ page.next.url | replace: '//', '/' }}"><span class="short">next </span><span class="long"></span><i class="fa fa-angle-right"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% include footer.html %}
+        
+    </body>
+    <script>
+        $('img.lazyload').lazyload({
+            effect: 'fadeIn'
+        });
+    </script>
+</html>

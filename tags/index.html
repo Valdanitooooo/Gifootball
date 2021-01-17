@@ -1,0 +1,54 @@
+---
+title: 标签云
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body>
+        <div class="scanlines"></div>
+        <header class="head">
+            {% include nav.html %}
+        </header>
+        <div class="margin">
+            <div class="content full">
+                <div class="content-container">
+                    <article class="page-article">
+                        <h4 class="page-title">
+                            {{page.title}}
+                        </h4>
+                        <div class="post-content">
+                            <div class="tagscloud">
+                                <ul id="tags-ul">
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        {% include footer.html %}
+        
+    </body>
+    <script>
+        $.getJSON("/public/json/tags.json").done(function (data) {
+            buildHtml(data);
+        });
+        function buildHtml(tags){
+            $('#tags-ul').empty();
+            const arr = [1, 2, 3];
+            let len = tags.length;
+            let content = '';
+            for (let i = 0; i < len; i++) {
+                let tag = tags[i];
+                let tagsize = tag.size;
+                let fontsize = tagsize>10?(2+tagsize*0.01):(1+tagsize*0.1);
+                 content+='<li><a href="/tag?q='+ encodeURIComponent(tag.name)
+                 +'" style="font-size:'+ fontsize +'em;">'+ tag.name+'</a><span>' + tagsize +'</span></li>';
+            }
+            $('#tags-ul').html(content);
+        }
+    </script>
+</html>
