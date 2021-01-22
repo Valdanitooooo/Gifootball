@@ -33,7 +33,7 @@ perPageItem: 3
     var startNum = 0;
     var endNum = "{{ page.initItem }}";
     var totalNum = 0;
-    var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="//cdn.jsdelivr.net/gh/Valdanitooooo/Gifootball/public/img/loading_list.svg"></div>');
+    var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="{{ "/public/img/loading_list.svg" | prepend: site.static_cdn_root }}"></div>');
     var articles;
     $.getJSON("/public/json/search.json").done(function (data) {
         articles = data;
@@ -124,7 +124,7 @@ perPageItem: 3
             } else {
                 if (!!currentData.featimg) {
                     htmlArr += '<a href="' + currentData.url + '" class="noline">\
-                        <img class="lazyload" src="//cdn.jsdelivr.net/gh/Valdanitooooo/Gifootball/public/img/loading.svg" data-src="{{ site.pic_bed_featimg_root }}'+ currentData.featimg + '?type=img" alt="' + currentData.title + '"></a>';
+                        <img class="lazyload" src="{{ "/public/img/loading.svg" | prepend: site.static_cdn_root }}" data-src="{{ site.pic_bed_featimg_root }}'+ currentData.featimg + '?type=img" alt="' + currentData.title + '"></a>';
                 }
             }
 
