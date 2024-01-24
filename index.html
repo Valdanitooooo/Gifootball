@@ -197,7 +197,7 @@ perPageItem: 3
         var tagArr = tags.split(",");
         for (i in tagArr){
             var aTag = tagArr[i];
-            html+='<li><a href="/tag?q='+ encodeURI(aTag) +'">' + aTag +'</a>\
+            html+='<li><a href="/gifootball/tag?q='+ encodeURI(aTag) +'">' + aTag +'</a>\
                 <span>'+ totalTags[aTag] +'</span></li>';
         }
         return html;

@@ -45,7 +45,7 @@ title: 标签云
                 let tag = tags[i];
                 let tagsize = tag.size;
                 let fontsize = tagsize>10?(2+tagsize*0.01):(1+tagsize*0.1);
-                 content+='<li><a href="/tag?q='+ encodeURIComponent(tag.name)
+                 content+='<li><a href="/gifootball/tag?q='+ encodeURIComponent(tag.name)
                  +'" style="font-size:'+ fontsize +'em;">'+ tag.name+'</a><span>' + tagsize +'</span></li>';
             }
             $('#tags-ul').html(content);

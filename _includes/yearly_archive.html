@@ -22,6 +22,6 @@
         <h5>{{ post.date | date: '%Y' }}({{ counts[i] }})</h5>
         {% assign i = i | plus: 1 %}
     {% endif %}
-<li><span class="date">{{ post.date | date:"%Y-%m-%d." }}</span> <a href="{{ post.url | replace: '//', '/'}}">{{ post.title }}</a></li>
+<li><span class="date">{{ post.date | date:"%Y-%m-%d." }}</span> <a href="/gifootball{{ post.url | replace: '//', '/'}}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
