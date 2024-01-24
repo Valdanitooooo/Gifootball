@@ -13,7 +13,7 @@ title: 关于本站
 
   本站主题: 发布本人原创的一些gif，进行标签化分类整理。终极目标就是打造一个足球纪念馆，短短的一张gif就是有这样的魔力，能瞬间撩动你记忆的琴弦。  
 
-  本站内容: 分为几大类，[gif](/Gif){:target="_blank"}、[图片](/Image){:target="_blank"}、[图集](/Gallery){:target="_blank"}、[视频](/Video){:target="_blank"}、[音频](/Audio){:target="_blank"}，主要还是以gif为主，[归档](/Archive){:target="_blank"}是本站发布内容的历史记录，[标签云](/Tags){:target="_blank"}这部分是我重点想打造的，现在谷歌、微软、腾讯等这些大公司都有自己的多标签图像数据集，我肯定做不出内样婶儿滴，或者说我一个人做不出内样婶儿滴(手动滑稽)，不过多标签管理确实能让庞杂的东西更有条理，搜索也更方便，我做的gif虽然没有百万级那么多，但是几千还是有的，做好标签分类就方便查找多了(因为我想找一张我记得我做过的gif都好难)，另一方面也希望自己能有所成长，做事更有条理。
+  本站内容: 分为几大类，[gif](/gifootball/category/?q=gif){:target="_blank"}、[图片](/gifootball/category/?q=image){:target="_blank"}、[图集](/gifootball/category/?q=gallery){:target="_blank"}、[视频](/gifootball/category/?q=video){:target="_blank"}、[音频](/gifootball/category/?q=audio){:target="_blank"}，主要还是以gif为主，[归档](/gifootball/archive){:target="_blank"}是本站发布内容的历史记录，[标签云](/gifootball/tags){:target="_blank"}这部分是我重点想打造的，现在谷歌、微软、腾讯等这些大公司都有自己的多标签图像数据集，我肯定做不出内样婶儿滴，或者说我一个人做不出内样婶儿滴(手动滑稽)，不过多标签管理确实能让庞杂的东西更有条理，搜索也更方便，我做的gif虽然没有百万级那么多，但是几千还是有的，做好标签分类就方便查找多了(因为我想找一张我记得我做过的gif都好难)，另一方面也希望自己能有所成长，做事更有条理。
 
   本站功能: 目前最重要的就是多标签搜索功能；评论功能采用[Valine](https://valine.js.org/){:target="_blank"}。
   
@@ -25,7 +25,7 @@ title: 关于本站
 
 ###### 2.个人信息
 
-  Valdanito, 理工🐶程序🐶足球🐶单身🐶90后老🐶，看球30年。
+  Valdanito，90后看球50年。
 
 ###### 3.联系方式
 
