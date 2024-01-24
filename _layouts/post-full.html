@@ -47,7 +47,7 @@
                             {% include gallery_lightbox.html %}
                         {% elsif "gif" == page_type %}
                             {% if page.featimg %}
-                            <img class="featimg lazyload" src="{{ "/public/img/loading.svg" | prepend: site.static_cdn_root }}"
+                            <img class="featimg lazyload" src="{{ "/gifootball/public/img/loading.svg" | prepend: site.static_cdn_root }}"
                                 data-src="{{ site.pic_bed_root }}{{ page.featimg }}.gif" alt="{{ page.title }}">
                             {% endif %}
                             {% if page.videoUrl %}
@@ -57,7 +57,7 @@
                             {% endif %}
                         {% elsif "image" == page_type %}
                             {% if page.featimg %}
-                            <img class="featimg lazyload" src="{{ "/public/img/loading.svg" | prepend: site.static_cdn_root }}"
+                            <img class="featimg lazyload" src="{{ "/gifootball/public/img/loading.svg" | prepend: site.static_cdn_root }}"
                                 data-src="{{ site.pic_bed_root }}{{ page.featimg }}.jpg" alt="{{ page.title }}">
                             {% endif %}
                             {% if page.videoUrl %}
