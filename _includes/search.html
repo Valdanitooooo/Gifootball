@@ -47,7 +47,7 @@
             // $('<div style="background-image:linear-gradient(to bottom, red, red)" \
             // data-value="image">image</div>').insertBefore("#input-tags-selectized")
             $(".posts").empty();
-            $.getJSON("/public/json/search.json").done(function (data) {
+            $.getJSON("/gifootball/public/json/search.json").done(function (data) {
                 articles = data;
                 totalNum = articles.length;
                 initArticles();

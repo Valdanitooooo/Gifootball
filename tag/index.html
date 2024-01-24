@@ -35,7 +35,7 @@ perPageItem: 3
     var totalNum = 0;
     var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="{{ "/public/img/loading_list.svg" | prepend: site.static_cdn_root }}"></div>');
     var articles;
-    $.getJSON("/public/json/search.json").done(function (data) {
+    $.getJSON("/gifootball/public/json/search.json").done(function (data) {
         articles = data;
         totalTags = getTotalTags(articles);
         totalNum = articles.length;

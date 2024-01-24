@@ -1,6 +1,6 @@
 
 var strs = [];
-$.getJSON("/public/json/tags.json").done(function (data) {
+$.getJSON("/gifootball/public/json/tags.json").done(function (data) {
     strs = data;
 });
 
