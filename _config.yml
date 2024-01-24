@@ -1,6 +1,6 @@
 title: Gifootball
 description: 足球纪念馆
-baseurl: /gifootball
+baseurl: /
 permalink: /:categories/:year-:month-:day/:title.html
 paginate: 9
 paginate_path: /page/:num/
