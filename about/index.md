@@ -21,7 +21,7 @@ title: 关于本站
   
   本站公众号: gifootball，做着玩的，没必要关注。
 
-  本站源码: 基于Jekyll工具构建，模板代码基于[gridster-jekyll-theme](https://github.com/DigitalMindCH/gridster-jekyll-theme){:target="_blank"}，做了不少修改。得之开源，还之开源，本站模板[源码](https://github.com/Valdanitooooo/Gifootball){:target="_blank"}可以任意使用，除_posts目录外。
+  本站源码: 基于Jekyll工具构建，模板代码基于[gridster-jekyll-theme](https://github.com/DigitalMindCH/gridster-jekyll-theme){:target="_blank"}，做了不少修改。得之开源，还之开源，本站模板[源码](https://github.com/Valdanitooooo/gifootball){:target="_blank"}可以任意使用，除_posts目录外。
 
 ###### 2.个人信息
 

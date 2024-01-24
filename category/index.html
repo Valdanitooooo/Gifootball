@@ -32,9 +32,9 @@ perPageItem: 3
     var startNum = 0;
     var endNum = "{{ page.initItem }}";
     var totalNum = 0;
-    var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="{{ "/gifootball/public/img/loading_list.svg" | prepend: site.static_cdn_root }}"></div>');
+    var $loading = $('<div class="loading" style="margin: 5em auto 2.5em;"><img src="{{ "/public/img/loading_list.svg" | prepend: site.static_cdn_root }}"></div>');
     var articles;
-    $.getJSON("/gifootball/public/json/category/"+keyword+".json").done(function (data) {
+    $.getJSON("/public/json/category/"+keyword+".json").done(function (data) {
         articles = data;
         totalTags = getTotalTags(articles);
         totalNum = articles.length;
@@ -123,7 +123,7 @@ perPageItem: 3
             } else {
                 if (!!currentData.featimg) {
                     htmlArr += '<a href="' + currentData.url + '" class="noline">\
-                        <img class="lazyload" src="{{ "/gifootball/public/img/loading.svg" | prepend: site.static_cdn_root }}" data-src="{{ site.pic_bed_featimg_root }}'+ currentData.featimg + '?type=img" alt="' + currentData.title + '"></a>';
+                        <img class="lazyload" src="{{ "/public/img/loading.svg" | prepend: site.static_cdn_root }}" data-src="{{ site.pic_bed_featimg_root }}'+ currentData.featimg + '?type=img" alt="' + currentData.title + '"></a>';
                 }
             }
 

@@ -2,7 +2,7 @@
 <div class="masonry">
     {% for gallery in page.gallery %} {% for image in gallery.images %}
     <a href="{{ site.pic_bed_root }}{{ image.url }}" data-imagelightbox="f" class="noline">
-        <img class="lazyload" src="{{ "/gifootball/public/img/loading.svg" | prepend: site.static_cdn_root }}" data-src="{{ site.pic_bed_root }}{{ image.url }}"
+        <img class="lazyload" src="{{ "/public/img/loading.svg" | prepend: site.static_cdn_root }}" data-src="{{ site.pic_bed_root }}{{ image.url }}"
             alt="{{ page.title }}"> 
     </a>
     {% endfor %} {% endfor %}

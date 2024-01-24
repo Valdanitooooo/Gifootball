@@ -21,7 +21,7 @@
 </div> -->
 <div class="articles posts">
 </div>
-<script src="{{ "/gifootball/public/js/search.js" | prepend: site.static_cdn_root }}"></script>
+<script src="{{ "/public/js/search.js" | prepend: site.static_cdn_root }}"></script>
 
 <script>
 	/**
@@ -38,7 +38,7 @@
     var startNum = 0;
     var endNum = "{{ page.initItem }}";
     var totalNum = 0;
-    var $loading = $("<div class='loading' style='text-align:center !important;'><img src='{{ site.static_cdn_root }}/gifootball/public/img/loading_list.svg'></div>");
+    var $loading = $("<div class='loading' style='text-align:center !important;'><img src='{{ site.static_cdn_root }}/public/img/loading_list.svg'></div>");
     var articles;
     function search(keywordStr) {
         keyword = keywordStr;
@@ -47,7 +47,7 @@
             // $('<div style="background-image:linear-gradient(to bottom, red, red)" \
             // data-value="image">image</div>').insertBefore("#input-tags-selectized")
             $(".posts").empty();
-            $.getJSON("/gifootball/public/json/search.json").done(function (data) {
+            $.getJSON("/public/json/search.json").done(function (data) {
                 articles = data;
                 totalNum = articles.length;
                 initArticles();
